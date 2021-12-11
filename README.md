@@ -6,8 +6,7 @@
 
 Follow the steps below to use Custom Repeater Control
 
-1. Add the following files in Active theme directories.
-<br>
+**1.** Add the following files in Active theme directories.
 
 | **DIR** | **Filename** |
 | --- | --- |
@@ -16,4 +15,5 @@ Follow the steps below to use Custom Repeater Control
 | css | *wpb-repeater-control.css* |
 
 <br>
-2. Copy the *functions.php* code in your Active theme *functions.php* file.
+
+**2.** Copy the *functions.php* code in your Active theme *functions.php* file.
