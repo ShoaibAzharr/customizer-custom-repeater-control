@@ -6,16 +6,25 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 /**
  * Custom control class for customizer to repeat fields.
  */
-class ACE_Repeater_Control extends WP_Customize_Control {
+class WPB_Repeater_Control extends WP_Customize_Control {
 
-/**
- * Declaring data members for class.
- */
+	/**
+	 * Declaring data members for class.
+	 */
 	public $id;
-	private $boxtitle = array();
-	private $ace_image_control = false;
-	private $ace_text_control = false;
-	private $ace_link_control = false;
+	private $heading;
+	private $box_title;
+
+
+	/**
+	 * Available Controls
+	 *
+	 * @var boolean
+	 */
+	private $wpb_image_control = false;
+	private $wpb_text_control = false;
+	private $wpb_link_control = false;
+
 
 	/**
 	 * Constructor for class.
@@ -26,21 +35,22 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
 		/*Get options from customizer.php*/
-		$this->boxtitle   = esc_html__( 'Cusomizer Repeater', 'ace_edu' );
+		$this->heading   = esc_html__( 'Customizer Repeater', 'wpb_text_domain' );
 		if ( ! empty( $this->label ) ) {
-			$this->boxtitle = $this->label;
+			$this->heading = $this->label;
 		}
-
-		if ( ! empty( $args['ace_image_control'] ) ) {
-			$this->ace_image_control = $args['ace_image_control'];
+		$this->box_title   = esc_html__( 'Repeat box', 'wpb_text_domain' );
+		if ( ! empty( $args['singular'] ) ) {
+			$this->box_title = $args['singular'];
 		}
-
-		if ( ! empty( $args['ace_text_control'] ) ) {
-			$this->ace_text_control = $args['ace_text_control'];
+		if ( ! empty( $args['wpb_image_control'] ) ) {
+			$this->wpb_image_control = $args['wpb_image_control'];
 		}
-
-		if ( ! empty( $args['ace_link_control'] ) ) {
-			$this->ace_link_control = $args['ace_link_control'];
+		if ( ! empty( $args['wpb_text_control'] ) ) {
+			$this->wpb_text_control = $args['wpb_text_control'];
+		}
+		if ( ! empty( $args['wpb_link_control'] ) ) {
+			$this->wpb_link_control = $args['wpb_link_control'];
 		}
 		if ( ! empty( $args['id'] ) ) {
 			$this->id = $args['id'];
@@ -48,21 +58,20 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 
 	}
 
-/**
- * Enqueuing scripts and stylesheets.
- */
+	/**
+	 * Enqueuing scripts and stylesheets.
+	 */
 	public function enqueue() {
 
+		wp_enqueue_style( 'wpb-repeater-control-stylesheet', get_stylesheet_directory_uri() . '/assets/css/wpb-repeater-control.css', array() );
 
-		wp_enqueue_style( 'ace-repeater-admin-stylesheet',  'http://dev.pro/wp-content/themes/twentytwentyone/ace/inc/admin-style.css', array() );
-
-		wp_enqueue_script( 'ace-repeater-script',  'http://dev.pro/wp-content/themes/twentytwentyone/ace/inc/customizer_repeater.js', array( 'jquery', 'jquery-ui-draggable' ), true );
+		wp_enqueue_script( 'wpb-customizer-repeater-script', get_stylesheet_directory_uri() . '/assets/js/wpb-customizer-repeater.js', array( 'jquery', 'jquery-ui-draggable' ), true );
 
 	}
 
-/**
- * Rendering the content.
- */
+	/**
+	 * Rendering the content.
+	 */
 	public function render_content() {
 
 		// Get default options.
@@ -77,8 +86,8 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 			$json = array( $values );
 		} ?>
 
-		<span class="ace-control-title"><?php echo esc_html( $this->label ); ?></span>
-		<div class="ace-repeater-general-control-repeater customizer-repeater-general-control-droppable">
+		<span class="wpb-control-title"><?php echo esc_html( $this->heading ); ?></span>
+		<div class="wpb-repeater-general-control-repeater customizer-repeater-general-control-droppable">
 			<?php
 			if ( ( count( $json ) == 1 && '' === $json[0] ) || empty( $json ) ) {
 				if ( ! empty( $this_default ) ) {
@@ -86,44 +95,44 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 					?>
 					<input type="hidden"
 						   id="customizer-repeater-<?php echo esc_html( $this->id ); ?>-collector" <?php $this->link(); ?>
-						   class="ace-repeater-collector"
+						   class="wpb-repeater-collector"
 						   value="<?php echo esc_textarea( json_encode( $this_default ) ); ?>"/>
 					<?php
 				} else {
 					$this->iterate_array();
 					?>
-					<input type="hidden" id="customizer-repeater-<?php echo esc_html( $this->id ); ?>-collector" <?php $this->link(); ?> class="ace-repeater-collector"/>
+					<input type="hidden" id="customizer-repeater-<?php echo esc_html( $this->id ); ?>-collector" <?php $this->link(); ?> class="wpb-repeater-collector"/>
 					<?php
 				}
 			} else {
 				$this->iterate_array( $json );
 				?>
-				<input type="hidden" id="customizer-repeater-<?php echo esc_html( $this->id ); ?>-collector" <?php $this->link(); ?> class="ace-repeater-collector" value="<?php echo esc_textarea( $this->value() ); ?>"/>
+				<input type="hidden" id="customizer-repeater-<?php echo esc_html( $this->id ); ?>-collector" <?php $this->link(); ?> class="wpb-repeater-collector" value="<?php echo esc_textarea( $this->value() ); ?>"/>
 				<?php
 			}
 			?>
 			</div>
 		<button type="button" class="button add_field customizer-repeater-new-field" value="1">
-			<?php echo esc_html( 'Add Logo' ); ?>
+			<?php echo esc_html( 'Add '. $this->box_title ); ?>
 		</button>
 		<?php
 		}
 
-/**
- * Iterating array for repeating input fields.
- * @param  array  $array
- */
+	/**
+	 * Iterating array for repeating input fields.
+	 * @param  array  $array
+	 */
 	private function iterate_array( $array = array() ) {
 		/*Counter that helps checking if the box is first and should have the delete button disabled*/
 		$it = 0;
 		if ( ! empty( $array ) ) {
 			foreach ( $array as $box ) {
 				?>
-				<div class="ace-repeater-general-control-repeater-container customizer-repeater-draggable">
+				<div class="wpb-repeater-general-control-repeater-container customizer-repeater-draggable">
 					<div class="customizer-repeater-customize-control-title">
-						<?php echo esc_html( $this->boxtitle ); ?>
+						<?php echo esc_html( $this->box_title ); ?>
 					</div>
-					<div class="ace-repeater-box-content-hidden">
+					<div class="wpb-repeater-box-content-hidden">
 						<?php
 						$choice = $image_url = $text = $link = '';
 						if ( ! empty( $box->choice ) ) {
@@ -138,39 +147,39 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 						if ( ! empty( $box->link ) ) {
 							$link = $box->link;
 						}
-						if ( $this->ace_image_control == true ) {
+						if ( $this->wpb_image_control == true ) {
 							$this->image_control( $image_url, $choice );
 						}
-						if ( $this->ace_text_control == true ) {
+						if ( $this->wpb_text_control == true ) {
 							$this->input_control(
 								array(
-									'label' => 'text',
-									'class' => 'ace-repeater-text-control',
+									'label' => 'Text',
+									'class' => 'wpb-repeater-text-control',
 									'type'  => 'textarea',
 									'sanitize_callback' => 'wp_kses_post'
 								), $text
 							);
 						}
-						if ( $this->ace_link_control ) {
+						if ( $this->wpb_link_control ) {
 							$this->input_control(
 								array(
 									'label' => 'Link',
-									'class' => 'ace-repeater-link-control',
+									'class' => 'wpb-repeater-link-control',
 									'sanitize_callback' => 'esc_url_raw',
 								), $link
 							);
 						}
 						?>
 
-						<input type="hidden" class="logo-repeater-box-id" value=" <?php if ( ! empty( $this->id ) ) { echo esc_attr( $this->id ); } ?> ">
-						<button type="button" class="logo-repeater-general-control-remove-field button"
+						<input type="hidden" class="wpb-repeater-box-id" value=" <?php if ( ! empty( $this->id ) ) { echo esc_attr( $this->id ); } ?> ">
+						<button type="button" class="wpb-repeater-general-control-remove-field button"
 						<?php
 						if ( $it == 0 ) {
 							echo 'style="display:none;"';
 						}
 						?>
 						>
-							<?php esc_html_e( 'Delete field', 'ace_edu' ); ?>
+							<?php esc_html_e( 'Delete field', 'wpb_text_domain' ); ?>
 						</button>
 
 					</div>
@@ -181,38 +190,38 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 			}
 		} else {
 		?>
-			<div class="ace-repeater-general-control-repeater-container">
+			<div class="wpb-repeater-general-control-repeater-container">
 				<div class="customizer-repeater-customize-control-title">
-					<?php echo esc_html( $this->boxtitle ); ?>
+					<?php echo esc_html( $this->box_title ); ?>
 				</div>
-				<div class="ace-repeater-box-content-hidden">
+				<div class="wpb-repeater-box-content-hidden">
 					<?php
-					if ( $this->ace_image_control == true ) {
+					if ( $this->wpb_image_control == true ) {
 						$this->image_control();
 					}
-					if ( $this->ace_text_control == true ) {
+					if ( $this->wpb_text_control == true ) {
 						$this->input_control(
 							array(
 								'label' => 'Text',
-								'class' => 'ace-repeater-text-control',
+								'class' => 'wpb-repeater-text-control',
 								'type'  => 'textarea',
 								'sanitize_callback' => 'wp_kses_post'
 							)
 						);
 					}
-					if ( $this->ace_link_control == true ) {
+					if ( $this->wpb_link_control == true ) {
 						$this->input_control(
 							array(
-								'label' => 'Image Link',
-								'class' => 'ace-repeater-link-control',
+								'label' => 'Link',
+								'class' => 'wpb-repeater-link-control',
 								'sanitize_callback' => 'esc_url_raw',
 							)
 						);
 					}
 					?>
-					<input type="hidden" class="logo-repeater-box-id">
-					<button type="button" class="logo-repeater-general-control-remove-field button" style="display:none;">
-						<?php esc_html_e( 'Delete field', 'ace_edu' ); ?>
+					<input type="hidden" class="wpb-repeater-box-id">
+					<button type="button" class="wpb-repeater-general-control-remove-field button" style="display:none;">
+						<?php esc_html_e( 'Delete field', 'wpb_text_domain' ); ?>
 					</button>
 				</div>
 			</div>
@@ -220,15 +229,15 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 		}
 	}
 
-/**
- * Input control for repeater field.
- * @param  array $options
- * @param  string $value
- */
+	/**
+	 * Input control for repeater field.
+	 * @param  array $options
+	 * @param  string $value
+	 */
 	private function input_control( $options, $value = '' ) {
 	?>
 	<div id="<?php echo str_replace( " ", "-", strtolower($options['label'] ) ) ?>">
-		<span class="ace-control-title"><?php echo esc_html( $options['label'] ); ?></span>
+		<span class="wpb-control-title"><?php echo esc_html( $options['label'] ); ?></span>
 		<?php
 		if ( ! empty( $options['type'] ) && $options['type'] === 'textarea' ) :
 		?>
@@ -243,23 +252,21 @@ class ACE_Repeater_Control extends WP_Customize_Control {
 	</div> <?php
 	}
 
-/**
- * Image control for repeater field.
- * @param  string $value
- * @param  string $show
- */
+	/**
+	 * Image control for repeater field.
+	 * @param  string $value
+	 * @param  string $show
+	 */
 	private function image_control( $value = '', $show = '' ) {
 	?>
-		<div class="ace-repeater-image-control" <?php if ( $show === 'customizer_repeater_icon' || $show === 'customizer_repeater_none' ) { echo 'style="display:none;"'; } ?> >
-			<span class="ace-control-title">
-				<?php esc_html_e( 'Image', 'ace_edu' ); ?>
+		<div class="wpb-repeater-image-control" <?php if ( $show === 'customizer_repeater_icon' || $show === 'customizer_repeater_none' ) { echo 'style="display:none;"'; } ?> >
+			<span class="wpb-control-title">
+				<?php esc_html_e( 'Image', 'wpb_text_domain' ); ?>
 			</span>
 			<input type="text" class="widefat custom-media-url" value="<?php echo esc_attr( $value ); ?>">
 			<img src="<?php echo esc_attr( $value ); ?>" class="custom-media-box">
-			<input type="button" class="button button-primary customizer-repeater-custom-media-button" value="<?php esc_html_e( 'Upload Image', 'ace_edu' ); ?>" />
+			<input type="button" class="button button-primary customizer-repeater-custom-media-button" value="<?php esc_html_e( 'Upload Image', 'wpb_text_domain' ); ?>" />
 		</div>
 		<?php
 	}
-
-
 }

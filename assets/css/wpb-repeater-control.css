@@ -1,20 +1,20 @@
-.ace-control-title {
+.wpb-control-title {
 	margin-top: 15px;
 	color: rgb(0, 142, 214);
 }
-.ace-repeater-general-control-repeater-container, .customizer-repeater-general-control-repeater_container {
+.wpb-repeater-general-control-repeater-container, .customizer-repeater-general-control-repeater_container {
 	width: 100%;
 	float: left;
 	padding: 5px 0;
 	cursor:move;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden, .ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden {
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden, .wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden {
 	padding: 5px;
 	border: 1px solid #dfdfdf;
 	border-top:0px;
 	padding-top: 0px;
 }
-button.logo-repeater-general-control-remove-field {
+button.wpb-repeater-general-control-remove-field {
 	display: inline-block;
 	white-space: initial !important;
 	line-height: 17px !important;
@@ -23,18 +23,18 @@ button.logo-repeater-general-control-remove-field {
 }
 
 
-button.logo-repeater-general-control-remove-field:hover{
+button.wpb-repeater-general-control-remove-field:hover{
 	background-color:#00a0d2!important;
 	color:#FFFFFF!important;
 	border: 0;
 }
 
 
- .ace-repeater-general-control-repeater-container .ace-repeater-text-control, .ace-repeater-general-control-repeater-container .ace-repeater-link-control{
+ .wpb-repeater-general-control-repeater-container .wpb-repeater-text-control, .wpb-repeater-general-control-repeater-container .wpb-repeater-link-control{
 	width: 100% !important;
 	margin: 3px 0 0 !important;
 }
- .ace-repeater-general-control-repeater-container .customizer-repeater-icon-control {
+ .wpb-repeater-general-control-repeater-container .customizer-repeater-icon-control {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -49,11 +49,11 @@ button.logo-repeater-general-control-remove-field:hover{
 
 
 
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden{
 	display: none;
 }
 
-.ace-repeater-box-content-hidden{
+.wpb-repeater-box-content-hidden{
 	background-color: #FFFFFF;
 }
 
@@ -82,12 +82,12 @@ button.logo-repeater-general-control-remove-field:hover{
 	color:#00a0d2;
 }
 
-.ace-repeater-image-control .customizer-repeater-custom-media-button{
+.wpb-repeater-image-control .customizer-repeater-custom-media-button{
 	margin-top: 5px;
 }
 
 
-.customizer-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+.customizer-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden{
     padding-top: 5px;
 }
 
@@ -97,7 +97,7 @@ button.logo-repeater-general-control-remove-field:hover{
 	vertical-align: middle;
 }
 
-.ace-logo-repeater-remove-social-item{
+.wpb-wpb-repeater-remove-social-item{
 	display: inline-block;
 	vertical-align: top;
 	font-weight: bold;
@@ -107,7 +107,7 @@ button.logo-repeater-general-control-remove-field:hover{
 	cursor: pointer;
 }
 
-.ace-repeater-logo-repeater > .customizer-repeater-logo-repeater-container:not(:first-child){
+.wpb-repeater-logo-repeater > .customizer-repeater-wpb-repeater-container:not(:first-child){
 	margin-top: 25px;
 }
 
@@ -116,11 +116,11 @@ button.logo-repeater-general-control-remove-field:hover{
 	position: relative;
 }
 
-.ace-repeater-logo-repeater-link{
+.wpb-repeater-wpb-repeater-link{
 	width:215px!important;
 }
 
-.logo-repeater-add-social-item{
+.wpb-repeater-add-social-item{
 	margin-top: 10px;
 }
 /*=============================================>>>>>
@@ -132,28 +132,28 @@ button.logo-repeater-general-control-remove-field:hover{
 	-webkit-box-shadow: 0 0 1px rgba(54, 53, 57, 1) inset;
 	box-shadow: 0 0 1px rgba(54, 53, 57, 1) inset;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden > div{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden > div{
 	overflow: hidden;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden, .ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden, .wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden{
 	padding: 0 10px 10px;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .ace-control-title{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .wpb-control-title{
   display: block;
   margin: 10px 0 0;
 	font-weight: bold;
 	color: #144282;
 }
-.customize-control-notifications-container + .ace-control-title{
+.customize-control-notifications-container + .wpb-control-title{
 	font-size: 18px;
 	color: #144282;
 	display: block;
 }
 
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .ace-control-title-uni {
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .wpb-control-title-uni {
 	display: inline-block;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden input[type=text]{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden input[type=text]{
 	padding: 10px;
 	margin-top: 0 !important;
 	-webkit-border-radius: 3px;
@@ -163,7 +163,7 @@ button.logo-repeater-general-control-remove-field:hover{
 	border-radius: 3px;
 	border: 1px solid #144282;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden textarea{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden textarea{
 	padding: 10px;
 	height: 100px;
 	margin-top: 0 !important;
@@ -174,7 +174,7 @@ button.logo-repeater-general-control-remove-field:hover{
 	border-radius: 3px;
 	border: 1px solid #144282;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button,
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .button,
 .customize-control .add_field.customizer-repeater-new-field{
 	padding: 3px 10px;
 	height: auto;
@@ -194,18 +194,18 @@ button.logo-repeater-general-control-remove-field:hover{
 	background-color: transparent;
 	box-shadow: inset 0 0 0 0 #144282;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button.button-primary,
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .button.button-primary,
 .customize-control .add_field.customizer-repeater-new-field{
 	background: #efac21 !important;
 	text-shadow: none;
 	float: right;
 }
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button:hover,
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .button:hover,
 .customize-control .add_field.customizer-repeater-new-field:hover{
 	box-shadow:inset 0 -67px 0 0 #144282;
 }
 
-.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .logo-repeater-general-control-remove-field{
+.wpb-repeater-general-control-repeater-container .wpb-repeater-box-content-hidden .wpb-repeater-general-control-remove-field{
 	padding: 10px 10px;
 	border: 0;
 	-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.07);
