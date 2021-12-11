@@ -1,0 +1,229 @@
+.ace-control-title {
+	margin-top: 15px;
+	color: rgb(0, 142, 214);
+}
+.ace-repeater-general-control-repeater-container, .customizer-repeater-general-control-repeater_container {
+	width: 100%;
+	float: left;
+	padding: 5px 0;
+	cursor:move;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden, .ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden {
+	padding: 5px;
+	border: 1px solid #dfdfdf;
+	border-top:0px;
+	padding-top: 0px;
+}
+button.logo-repeater-general-control-remove-field {
+	display: inline-block;
+	white-space: initial !important;
+	line-height: 17px !important;
+	width: 100%!important;
+	margin-top: 10px!important;
+}
+
+
+button.logo-repeater-general-control-remove-field:hover{
+	background-color:#00a0d2!important;
+	color:#FFFFFF!important;
+	border: 0;
+}
+
+
+ .ace-repeater-general-control-repeater-container .ace-repeater-text-control, .ace-repeater-general-control-repeater-container .ace-repeater-link-control{
+	width: 100% !important;
+	margin: 3px 0 0 !important;
+}
+ .ace-repeater-general-control-repeater-container .customizer-repeater-icon-control {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+#customizer-repeater-new-field {
+	width: 100%;
+}
+.customize-control-widget_form .widget-control-save {
+	display:block !important;
+}
+
+
+
+
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+	display: none;
+}
+
+.ace-repeater-box-content-hidden{
+	background-color: #FFFFFF;
+}
+
+.customizer-repeater-customize-control-title{
+	border: 1px solid #dfdfdf;
+	cursor: move !important;
+	font-weight: bold;
+	padding: 0 10px !important;
+	height: 40px;
+	line-height: 40px !important;
+	background-color: #f1f1f1;
+	background-image: -ms-linear-gradient(top, #f9f9f9, #ececec);
+	background-image: -moz-linear-gradient(top, #f9f9f9, #ececec);
+	background-image: -o-linear-gradient(top, #f9f9f9, #ececec);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#ececec));
+	background-image: -webkit-linear-gradient(top, #f9f9f9, #ececec);
+	background-image: linear-gradient(top, #f9f9f9, #ececec);
+	overflow: hidden;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: inset 0 1px 0 #fff;
+	-webkit-box-shadow: inset 0 1px 0 #fff;
+	box-shadow: inset 0 1px 0 #fff;
+	text-align: center;
+	color:#00a0d2;
+}
+
+.ace-repeater-image-control .customizer-repeater-custom-media-button{
+	margin-top: 5px;
+}
+
+
+.customizer-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+    padding-top: 5px;
+}
+
+.customizer-icons{
+	display: inline-block;
+	padding: 0 10px 0 0;
+	vertical-align: middle;
+}
+
+.ace-logo-repeater-remove-social-item{
+	display: inline-block;
+	vertical-align: top;
+	font-weight: bold;
+	color: #ff0000;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.ace-repeater-logo-repeater > .customizer-repeater-logo-repeater-container:not(:first-child){
+	margin-top: 25px;
+}
+
+.icp-container{
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.ace-repeater-logo-repeater-link{
+	width:215px!important;
+}
+
+.logo-repeater-add-social-item{
+	margin-top: 10px;
+}
+/*=============================================>>>>>
+= customizer updates =
+===============================================>>>>>*/
+
+.customizer-repeater-customize-control-title{
+	color: #144282;
+	-webkit-box-shadow: 0 0 1px rgba(54, 53, 57, 1) inset;
+	box-shadow: 0 0 1px rgba(54, 53, 57, 1) inset;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden > div{
+	overflow: hidden;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden, .ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden{
+	padding: 0 10px 10px;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .ace-control-title{
+  display: block;
+  margin: 10px 0 0;
+	font-weight: bold;
+	color: #144282;
+}
+.customize-control-notifications-container + .ace-control-title{
+	font-size: 18px;
+	color: #144282;
+	display: block;
+}
+
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .ace-control-title-uni {
+	display: inline-block;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden input[type=text]{
+	padding: 10px;
+	margin-top: 0 !important;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #144282;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden textarea{
+	padding: 10px;
+	height: 100px;
+	margin-top: 0 !important;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #144282;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button,
+.customize-control .add_field.customizer-repeater-new-field{
+	padding: 3px 10px;
+	height: auto;
+	margin-bottom: 3px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #fff;
+	display: inline-block;
+	background: #efac21;
+	border: 0;
+	outline: none;
+	-webkit-transition: 0.33s ease-in-out;
+	-moz-transition: 0.33s ease-in-out;
+	-o-transition: 0.33s ease-in-out;
+	transition: 0.33s ease-in-out;
+	background-color: transparent;
+	box-shadow: inset 0 0 0 0 #144282;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button.button-primary,
+.customize-control .add_field.customizer-repeater-new-field{
+	background: #efac21 !important;
+	text-shadow: none;
+	float: right;
+}
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .button:hover,
+.customize-control .add_field.customizer-repeater-new-field:hover{
+	box-shadow:inset 0 -67px 0 0 #144282;
+}
+
+.ace-repeater-general-control-repeater-container .ace-repeater-box-content-hidden .logo-repeater-general-control-remove-field{
+	padding: 10px 10px;
+	border: 0;
+	-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.07);
+	box-shadow:inset 0 1px 2px rgba(0,0,0,.07);
+	border: 1px solid #ddd;
+	color: red;
+	border: 1px solid #144282;
+}
+
+.custom-media-url {
+	display: none;
+}
+textarea.customize-editor-control{
+  width: 100%;
+}
+
+#customize-controls img{
+	display: block;
+}
+/*= End of customizer updates =*/
+/*=============================================<<<<<*/
