@@ -35,24 +35,35 @@ function wp_customizer_controls( $wp_customize ) {
 		'description'       => esc_html__( 'This panel allows you to customize Footer areas of the Theme.', 'wpb_text_domain' ),
 	) );
 
+	
+	// footer
 	$wp_customize->add_section( 'wpb_footer' , array(
-		'title'     => esc_html__( 'ACE Footer Logos', 'wpb_text_domain' ),
-		'priority'  => 10,
-		'panel'     => 'wpb_footer_panel',
+		'title'             => __('Footer', 'wpb_edu'),
+		'panel'             => 'wpb_footer_panel',
 	) );
-	$wp_customize->add_setting( 'wpb_footer_logos', array(
+
+	$wp_customize->add_setting( 'wpb_footer_partners', array(
 		'sanitize_callback' => 'wpb_repeater_sanitize'
 	) );
 
-	$wp_customize->add_control( new WPB_Repeater_Control( $wp_customize, 'wpb_footer_logos', array(
-		'label'             => esc_html__( 'Logos','wpb_text_domain' ),
-		'singular'          => esc_html__( 'Logo','wpb_text_domain' ),
-		'section'           => 'wpb_footer',
-		'priority'          => 15,
-	  	'wpb_link_control'  => true,
-		'wpb_image_control' => true,
-		'wpb_text_control'  => true,
-	) ) );
+	$wp_customize->add_control( 
+		new WPB_Repeater_Control( 
+			$wp_customize, 'wpb_footer_partners', array(
+				'label'             => esc_html__( 'Partners','wpb_edu' ),
+				'singular'          => esc_html__( 'Partner','wpb_edu' ),
+				'section'           => 'wpb_footer',
+				'priority'          => 6,
+				'wpb_link_control'  => true,
+				'link_label'		=> 'Site Link',
+				'wpb_image_control' => true,
+				'image_label'		=> 'Logo',
+				'wpb_text_control'  => true,
+				'text_label'		=> 'Alt Text',
+				'text_domain'       => 'text_domain_here',
+				'id'                => 0
+			)
+		)
+	);
 
 }
 add_action( 'customize_register', 'wp_customizer_controls', 19 );

@@ -14,6 +14,11 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 	public $id;
 	private $heading;
 	private $box_title;
+	private $text_label;
+	private $link_label;
+	private $image_label;
+	private $text_domain;
+
 
 
 	/**
@@ -34,15 +39,35 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
-		/*Get options from customizer.php*/
-		$this->heading   = esc_html__( 'Customizer Repeater', 'wpb_text_domain' );
+
+		$this->text_domain   = 'wpb_text_domain';
+		if ( ! empty( $args['text_domain'] ) ) {
+			$this->text_domain = $args['text_domain'];
+		}
+
+		//Labels
+		$this->heading   = esc_html__( 'Customizer Repeater', $this->text_domain );
 		if ( ! empty( $this->label ) ) {
 			$this->heading = $this->label;
 		}
-		$this->box_title   = esc_html__( 'Repeat box', 'wpb_text_domain' );
+		$this->box_title   = esc_html__( 'Repeat box', $this->text_domain );
 		if ( ! empty( $args['singular'] ) ) {
 			$this->box_title = $args['singular'];
 		}
+		$this->text_label  = esc_html__( 'Text', $this->text_domain );
+		if ( ! empty( $args['text_label'] ) ) {
+			$this->text_label = $args['text_label'];
+		}
+		$this->link_label   = esc_html__( 'Link', $this->text_domain );
+		if ( ! empty( $args['link_label'] ) ) {
+			$this->link_label = $args['link_label'];
+		}
+		$this->image_label   = esc_html__( 'Image', $this->text_domain );
+		if ( ! empty( $args['image_label'] ) ) {
+			$this->image_label = $args['image_label'];
+		}
+		
+		//Controls
 		if ( ! empty( $args['wpb_image_control'] ) ) {
 			$this->wpb_image_control = $args['wpb_image_control'];
 		}
@@ -63,9 +88,9 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		wp_enqueue_style( 'wpb-repeater-control-stylesheet', get_stylesheet_directory_uri() . '/assets/css/wpb-repeater-control.css', array() );
+		wp_enqueue_style( 'wpb-repeater-control-stylesheet', ACE_EDU_URI . '/assets/css/wpb-repeater-control.css', array() );
 
-		wp_enqueue_script( 'wpb-customizer-repeater-script', get_stylesheet_directory_uri() . '/assets/js/wpb-customizer-repeater.js', array( 'jquery', 'jquery-ui-draggable' ), true );
+		wp_enqueue_script( 'wpb-customizer-repeater-script', ACE_EDU_URI . '/assets/js/wpb-customizer-repeater.js', array( 'jquery', 'jquery-ui-draggable' ), true );
 
 	}
 
@@ -148,14 +173,14 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 							$link = $box->link;
 						}
 						if ( $this->wpb_image_control == true ) {
-							$this->image_control( $image_url, $choice );
+							$this->image_control( $image_url, $choice, $this->image_label );
 						}
 						if ( $this->wpb_text_control == true ) {
 							$this->input_control(
 								array(
-									'label' => 'Text',
+									'label' => $this->text_label,
 									'class' => 'wpb-repeater-text-control',
-									'type'  => 'textarea',
+									'type'  => 'text',
 									'sanitize_callback' => 'wp_kses_post'
 								), $text
 							);
@@ -163,7 +188,7 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 						if ( $this->wpb_link_control ) {
 							$this->input_control(
 								array(
-									'label' => 'Link',
+									'label' => $this->link_label,
 									'class' => 'wpb-repeater-link-control',
 									'sanitize_callback' => 'esc_url_raw',
 								), $link
@@ -179,7 +204,7 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 						}
 						?>
 						>
-							<?php esc_html_e( 'Delete field', 'wpb_text_domain' ); ?>
+							<?php esc_html_e( 'Delete field', $this->text_domain ); ?>
 						</button>
 
 					</div>
@@ -197,14 +222,14 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 				<div class="wpb-repeater-box-content-hidden">
 					<?php
 					if ( $this->wpb_image_control == true ) {
-						$this->image_control();
+						$this->image_control('', '', $this->image_label);
 					}
 					if ( $this->wpb_text_control == true ) {
 						$this->input_control(
 							array(
-								'label' => 'Text',
+								'label' => $this->text_label,
 								'class' => 'wpb-repeater-text-control',
-								'type'  => 'textarea',
+								'type'  => 'text',
 								'sanitize_callback' => 'wp_kses_post'
 							)
 						);
@@ -212,7 +237,7 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 					if ( $this->wpb_link_control == true ) {
 						$this->input_control(
 							array(
-								'label' => 'Link',
+								'label' => $this->link_label,
 								'class' => 'wpb-repeater-link-control',
 								'sanitize_callback' => 'esc_url_raw',
 							)
@@ -221,7 +246,7 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 					?>
 					<input type="hidden" class="wpb-repeater-box-id">
 					<button type="button" class="wpb-repeater-general-control-remove-field button" style="display:none;">
-						<?php esc_html_e( 'Delete field', 'wpb_text_domain' ); ?>
+						<?php esc_html_e( 'Delete field', $this->text_domain ); ?>
 					</button>
 				</div>
 			</div>
@@ -257,15 +282,15 @@ class WPB_Repeater_Control extends WP_Customize_Control {
 	 * @param  string $value
 	 * @param  string $show
 	 */
-	private function image_control( $value = '', $show = '' ) {
+	private function image_control( $value = '', $show = '', $image_label = 'Image' ) {
 	?>
 		<div class="wpb-repeater-image-control" <?php if ( $show === 'customizer_repeater_icon' || $show === 'customizer_repeater_none' ) { echo 'style="display:none;"'; } ?> >
 			<span class="wpb-control-title">
-				<?php esc_html_e( 'Image', 'wpb_text_domain' ); ?>
+				<?php esc_html_e( $image_label, $this->text_domain ); ?>
 			</span>
 			<input type="text" class="widefat custom-media-url" value="<?php echo esc_attr( $value ); ?>">
 			<img src="<?php echo esc_attr( $value ); ?>" class="custom-media-box">
-			<input type="button" class="button button-primary customizer-repeater-custom-media-button" value="<?php esc_html_e( 'Upload Image', 'wpb_text_domain' ); ?>" />
+			<input type="button" class="button button-primary customizer-repeater-custom-media-button" value="<?php esc_html_e( 'Upload '. $image_label, $this->text_domain ); ?>" />
 		</div>
 		<?php
 	}
